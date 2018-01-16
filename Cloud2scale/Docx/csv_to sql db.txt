@@ -1,0 +1,1 @@
+LOAD DATA LOCAL INFILE '/home/c2s/VHWInventory.csv' INTO TABLE t_product_current_inventory FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n';

@@ -1,0 +1,14 @@
+http://code.trendin.com/workspace/ashwinisanjewadmath/oysterr/admin
+Sent on:
+6:08 pm
+From:
+Ashwini Sanjewadmath
+ Plz check this ...I cant able to access this page
+
+
+cd /data/codiad/ -----> check the user is their and the platform 
+
+
+cd /etc/nginx/conf.d/
+vi code.conf 
+/etc/init.d/nginx reload

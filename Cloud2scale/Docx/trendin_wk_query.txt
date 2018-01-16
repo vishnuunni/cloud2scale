@@ -1,0 +1,1 @@
+DELETE FROM `t_product_current_inventory` WHERE `a_quantity` = 0 AND (a_processed = 1 OR is_redis_updated = 1)

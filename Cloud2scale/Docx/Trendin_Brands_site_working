@@ -1,0 +1,5 @@
+
+
+
+
+www.peterengland.com ---> R53 ---> CF (cf-live-186260374.ap-southeast-1.elb.amazonaws.com) ---> LB (CF-Live)which have HA machines tags CF-HA1 & HA2 ---> CF-HA1 & HA2 Servers (Redirect the request to the brand servers) like Desktop && Mobile servers

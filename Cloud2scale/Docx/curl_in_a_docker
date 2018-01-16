@@ -1,0 +1,2 @@
+
+docker exec prod-oyster  php /opt/app/index.php api/customersurvey/survey/0/5" >> spk22me_29.log

@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Logging Trendin-Pigeon-Prod-DB : 54.169.11.169"
+ssh -i c2s_sshkey c2s@54.169.11.169
+

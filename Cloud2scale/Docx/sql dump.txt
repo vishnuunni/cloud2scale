@@ -1,0 +1,19 @@
+mysqldump -u c2sroot -p'C25R00tu53R'  sparrow t_productfeatures t_productshop t_shop t_shoplang t_feature t_featurelang t_featurevalue t_featurevaluelang t_productean
+
+Dumb tables from one server to anoter db in server
+===============================================
+mysqldump -S /data/mysql/mysql.sock -u c2sroot -p'C25R00tu53R' sparrow t_productfeatures t_productshop t_shop t_shoplang t_feature t_featurelang t_featurevalue t_featurevaluelang t_productean > prodsparrow9tabjul11.sql
+
+after scp this sql file to the server copy this to the requested DB
+mysql -u root -p'R0di0$123%45Ha*$' sparrownew < prodsparrow9tabjul11.sql
+
+
+
+RE:Query Execution on production Sparrow database
+
+Download the file
+
+Login to the server copy the content in a file side the server
+Login to mysql choose db the start transaction
+Give the path\
+Commit

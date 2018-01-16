@@ -1,0 +1,1 @@
+AMI Creation -> ec2 -> click on server -> actions -> Create AMI -> give name put tick mark on (NO REBOOT)

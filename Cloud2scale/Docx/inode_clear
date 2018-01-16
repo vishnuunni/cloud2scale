@@ -1,0 +1,8 @@
+find /var/lib/jenkins/jobs/BOS\(QA2\)-UPDATE_DELIVERY_STATUS/builds/* -type d -ctime +3 -exec rm -rf {} \;
+find /var/lib/jenkins/jobs/BOS\(STAGE\)-UPDATE_DELIVERY_STATUS/builds/* -type d -ctime +3 -exec rm -rf {} \;
+
+
+
+
+find . -xdev -type f | cut -d "/" -f 2 | sort | uniq -c | sort -n
+

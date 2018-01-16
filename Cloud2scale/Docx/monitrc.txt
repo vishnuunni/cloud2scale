@@ -1,0 +1,86 @@
+## Global section##
+
+set daemon  60
+set logfile /var/log/monit.log
+set idfile /var/.monit.id
+set statefile /var/.monit.state
+set mmonit http://monit:monit@ping.cloud2scale.com:8080/collector
+
+
+
+set httpd port 2812 and
+    use address localhost  # only accept connection from localhost
+    allow localhost        # allow localhost to connect to the server and
+    allow admin:monit      # require user 'admin' with password 'monit'
+    allow @monit           # allow users of group 'monit' to connect (rw)
+    allow @users readonly
+
+## Services##
+check system Cytespace-ECID
+    if loadavg (1min) > 2 then alert
+    if loadavg (5min) > 2 then alert
+    if memory usage > 75% then alert
+    if swap usage > 90% then alert
+    if cpu usage (user) > 75% then alert
+    if cpu usage (system) > 75% then alert
+    if cpu usage (wait) > 75% then alert
+
+check filesystem  rootdisk with path /dev/xvda1
+    group server
+    if space usage > 85% then alert
+    if inode usage > 85% then alert
+    if space usage > 90% then alert
+    if inode usage > 90% then alert
+    if space usage > 95% then alert
+    if inode usage > 95% then alert
+
+check filesystem  datadisk with path /dev/xvdb1
+    group server
+    if space usage > 80% then alert
+    if inode usage > 80% then alert
+
+check filesystem  logsdisk with path  /dev/xvdf1
+    group server
+    if space usage > 80% then alert
+    if inode usage > 80% then alert
+
+check process tomcat7 with pidfile /var/run/tomcat7.pid
+group tomcat
+
+check process collectd with pidfile /var/run/collectdmon.pid
+group collectd
+
+check process crond with pidfile /var/run/crond.pid
+group crond
+
+check process httpd with pidfile /var/run/httpd/httpd.pid
+group httpd
+
+check host tickets.nightingales.in with address 127.0.0.1
+   if failed port 80 then alert
+
+
+check process jenkins with pidfile /var/run/jenkins.pid
+group jenkins
+if failed port 9080 then alert
+
+
+check host moadmin.nightingales.in with address 127.0.0.1
+if failed port 8080 type tcp with timeout 40 seconds then alert
+#check host moadmin with address 127.0.0.1
+#if failed port 8081 type tcp with timeout 40 seconds then alert
+
+#check program mysql-master  with path /opt/c2s/scripts/monit-mysql-check.sh  with timeout 5 seconds
+      # if status != 0 then alert
+
+check process sshd with pidfile /var/run/sshd.pid
+group sshd
+
+check file sshloginfailed with path /var/log/secure
+if match "Invalid user" then alert
+
+
+check program top10 with path "/usr/bin/top -n1 -b"
+   if status != 0 then alert
+
+

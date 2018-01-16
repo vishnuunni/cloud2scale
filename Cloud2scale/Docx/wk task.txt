@@ -1,0 +1,32 @@
+trendin : -
+Please execute below query on production bflytebo database weekly twice (Monday 6 AM and Thursday 6 AM). 
+DELETE FROM `t_product_current_inventory` WHERE `a_quantity` = 0 AND a_processed = 1;
+
+mnday and thrsday
+N0@cce55
+Bflytebo-DB-Master	i-0b1edfb239f96c10d	54.169.58.174	c3.large		
+running
+weekly mndy & thrdy clear sql data
+screen -r 15081.bflytebo-weekly
+
+mysql -u root -p'R0di0$123%45Ha*$'
+
+use bflytebo;
+
+start transaction;
+
+DELETE FROM `t_product_current_inventory` WHERE `a_quantity` = 0 AND a_processed = 1;
+
+Query done in Bflytebo-DB-Master
+
+---------------------------------------------
+
+nhhs
+n8 10 stop all "qa" machines except mangodb
+daily 7 am start all qa machines except mangodb
+
+
+------------------------------------------------------
+
+daily start stirred 6am
+daily stop stirred 10pm

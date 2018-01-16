@@ -1,0 +1,9 @@
+Upgrade monit procedure
+
+service monit stop
+mv /opt/monit/bin/monit /opt/monit/bin/monit.bk 
+wget http://dev.cloud2scale.com/monit -O /opt/monit/bin/monit
+mkdir -p /etc/monit.d/
+Add below config on monitrc.bkf
+set mmonit http://monit:monit@mmonit.cloud2scale.com:8080/collector
+service monit start

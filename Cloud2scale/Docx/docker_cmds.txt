@@ -1,0 +1,21 @@
+login - docker exec  -it nhhs_rpm bash
+
+docker logs [OPTIONS] CONTAINER
+
+
+
+COPY
+
+
+docker cp <docker file path> <destination>
+docker stats --no-stream $(docker ps|grep -v "NAMES"|awk '{ print $NF }'|tr "\n" " ")
+
+
+
+
+
+sudo docker rmi ed858d246620 --------> image del
+
+sudo docker commit -m "/bin/bash" -a "VISHNU_S" 3d436e52b105 ubuntu:apache -------> to take container image
+
+docker run -d -t -i --name vishnu_s -p 8082:8082 ed858d246620 /bin/bash --------> run new with image

@@ -1,0 +1,6 @@
+how to execute cron -
+
+
+Given url by client just put the log
+
+ curl "172.31.23.11:8084/omni/inventoryfromsterling/getInventory" >> /home/c2s/getInventory-aug24-2017-1.log

@@ -1,0 +1,2 @@
+http://biba.cloud2scale.com/host/view/?h=(instance_id)
+docker stats --no-stream $(docker ps|grep -v "NAMES"|awk '{ print $NF }'|tr "\n" " ")

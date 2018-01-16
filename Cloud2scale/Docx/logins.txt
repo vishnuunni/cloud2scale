@@ -1,0 +1,3 @@
+http://ping.cloud2scale.com:8080/index.csp
+username: c2s-team
+pwd: No@cce55

@@ -1,0 +1,3 @@
+http://app.cloudranger.com/#/userTask
+uid : support@cloud2scale.com
+pwd : No@cce55

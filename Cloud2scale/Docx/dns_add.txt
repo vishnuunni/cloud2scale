@@ -1,0 +1,1 @@
+for DNS add goto route53 -> hostedzones -> click on the Domain Name url -> Create Record Set -> type name ip

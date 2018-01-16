@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Opening Trendin AWS Acc :)"
+xdg-open http://931424238658.signin.aws.amazon.com/

@@ -1,0 +1,32 @@
+Creating A Backup
+The mysqldump command is used to create textfile “dumps” of databases managed by MySQL. These dumps are just files with all the SQL commands needed to recreate the database from scratch. The process is quick and easy.
+
+If you want to back up a single database, you merely create the dump and send the output into a file, like so:
+
+mysqldump database_name > database_name.sql
+
+Multiple databases can be backed up at the same time:
+
+mysqldump --databases database_one database_two > two_databases.sql
+
+In the code above, database_one is the name of the first database to be backed up, and database_two is the name of the second.
+
+It is also simple to back up all of the databases on a server:
+
+mysqldump --all-databases > all_databases.sql
+
+
+
+
+
+
+Restoring a Backup
+Since the dump files are just SQL commands, you can restore the database backup by telling mysql to run the commands in it and put the data into the proper database.
+
+mysql database_name < database_name.sql
+
+In the code above, database_name is the name of the database you want to restore, and database_name.sql is the name of the backup file to be restored..
+
+If you are trying to restore a single database from dump of all the databases, you have to let mysql know like this:
+
+mysql --one-database database_name < all_databases.sql

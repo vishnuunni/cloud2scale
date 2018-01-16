@@ -1,0 +1,7 @@
+nhhs dump procedure : -
+
+
+mkdir oct17
+cd oct17
+mongodump --db=bos --collection=areas
+

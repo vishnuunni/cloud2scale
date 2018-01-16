@@ -1,0 +1,20 @@
+-->Backup Single Table of Database
+
+# mysqldump -u root -ptecmint wordpress wp_posts > wordpress_posts.sql
+
+-->Multiple Tables of Database
+
+# mysqldump -u root -ptecmint wordpress wp_posts wp_comments > wordpress_posts_comments.sql
+
+-->Restore MySQL Database
+
+# # mysql -u [username] –p[password] [database_name] < [dump_file.sql]
+
+-->Restore Single MySQL Database
+
+# mysql -u root -ptecmint rsyslog < rsyslog.sql
+
+
+-->TRUNCATE TABLE
+
+TRUNCATE TABLE `this_table`

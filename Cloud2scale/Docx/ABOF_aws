@@ -1,0 +1,24 @@
+ABOF New Root Credentials:
+Prod:
+-----
+username:webmaster@abof.com
+password:4qlQ3DQmV9zo
+
+Access: AKIAJ2XSQ7AMVZ7Q6RHQ
+Secret: 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
+
+Dev:
+---
+username:abof-aws-dev@abof.com
+password:6dVS6PtN5v45
+Access: AKIAINTNOE6PO3NDUWJQ
+secret: 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
+
+Bigdata:
+-------
+username:abof-aws-bigdata@abof.com
+password:0f7BUUVrz7Fq
+
+Access: AKIAJUAAJDPVD5D3U72Q
+secret: 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
+

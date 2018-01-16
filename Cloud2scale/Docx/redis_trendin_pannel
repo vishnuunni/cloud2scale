@@ -1,0 +1,16 @@
+adding a redis to a pannel
+
+
+Tools-Docker - 54.255.187.62
+change in vi /opt/brandsprodredis/config.php
+
+
+
+
+Array(
+                'host'     => 'pt-prod-redis.sig.aws.trendin',
+                'port'     => '6379',
+                'password' => Null,
+                'database' => 0
+           ),
+

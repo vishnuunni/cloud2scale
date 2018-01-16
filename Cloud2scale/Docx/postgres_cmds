@@ -1,0 +1,6 @@
+su - postgres
+psql
+\list
+for dumping just su to postges and do the dump cmd their
+--------> pg_dump rpm(dbname) > rpm-oct28.sql(name)
+

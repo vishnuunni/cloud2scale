@@ -1,0 +1,1 @@
+/opt/graylog-collector/bin/graylog-collector  run -f /opt/graylog-collector/config/collector.conf &

@@ -1,0 +1,7 @@
+Brands-Live-DB-Master           - bflyte production
+Flamingomom-MasterNew           - flamingomom, dropship
+Brands-Live-Bflytebo-DB         - bflytebo (Bflytebo-DB-Master)
+Trendin_omni_xi                 - trendin_omni_xi
+Prod Db Docker - Host1          - pegion,sparrow
+Brand-test-NewDB                - Test DB's
+Flamingomom prod db             - Flamingomom-Dropship-DB-Master

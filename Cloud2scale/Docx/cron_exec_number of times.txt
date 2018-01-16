@@ -1,0 +1,2 @@
+/bash
+for n in {1..430}; do curl "172.31.23.11:8084/omni/inventoryfromsterling/getInventory" >> /cron-log/getInventory430Aug31new.log ; echo "$n" > /home/c2s/excount.log ; done

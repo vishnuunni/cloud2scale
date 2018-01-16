@@ -1,0 +1,8 @@
+ Log in to https://cloudsvn.trendin.com:4434/csvn/login/auth 
+
+user name: admin
+
+pass word: No@cce55
+
+
+Go to Repository then access rule (edit accoeding to the user request)

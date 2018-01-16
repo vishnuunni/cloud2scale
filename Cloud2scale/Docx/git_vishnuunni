@@ -1,0 +1,45 @@
+Github my url (username: vishnuunni)
+
+Tutorial - https://services.github.com/on-demand/github-cli/ https://github.com/alghanmi/ubuntu-desktop_setup/wiki/Git-Local-Repository-Setup-Guide
+
+
+Https - https://github.com/vishnuunni/mytest.git
+SSH  - git@github.com:vishnuunni/mytest.git
+
+Clone url : 
+Https - https://github.com/vishnuunni/mytest.git
+Ssh - git@github.com:vishnuunni/mytest.git
+
+Cmds (main): 
+
+apt-get install git
+
+git config --global user.name "vishnu"
+git config --global user.email "vishnuunni94@gmail.com"
+
+git init mytest
+cd mytest/
+vi readme
+vi sample.c
+git add readme
+git add sample.c
+git commit -m "test_msg"
+git remote add origin https://github.com/vishnuunni/mytest.git\
+git status
+git pust origin master
+git status
+git log | head
+git branch
+
+Cmds (pull server):
+mkdir clonetest
+cd clonetest/
+git clone https://github.com/vishnuunni/mytest2.git
+cd mytest
+git pull
+
+
+
+
+
+

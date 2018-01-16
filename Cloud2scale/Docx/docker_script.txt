@@ -1,0 +1,19 @@
+#!/bin/bash
+docker logs -t  prodbos > /var/log/bosconsole.log
+
+echo "killing bos container"
+
+docker kill prodbos
+
+echo "removing container"
+
+docker rm prodbos
+
+echo "starting container"
+
+docker run -t -i -d -p 3002:3000 --name prodbos -v /opt/prodbos:/usr/src/app  --link prodbosreports:reports -v /var/log/applogs/prodbos:/var/log/applogs/prodbos --env OSTICKET_STATUS_ID_CC=11 --env OSTICKET_DBTIMEZONE=UTC --env process.env.OSTICKET_TIMEZONE=UTC --env BUNYANLOGPATH=/var/log/applogs/prodbos/debug.log  --env OSTICKET_DBHOST=172.31.23.239 --env OSTICKET_DBUSER=osticket --env OSTICKET_DBPASS=rolipyoxe2u --env OSTICKET_DBNAME=osticketdb --env OSTICKET_USER=testadmin --env OSTICKET_EMAIL=c2s@nightingales.in --env OSTICKET_HOST=tickets.nightingales.in --env OSTICKET_PATH=/api/http.php/tickets.json --env logpath=/var/log/applogs/prodbos/app.log --env NODE_ENV=production --env MONGODB=mongodb://emrapp:3mRapp@172.31.16.169:27017/bos --env REPORT_MONGODB=mongodb://emrapp:3mRapp@172.31.16.169:27017/bos --env REPORTSERVER=remote --env BIRTURL=http://reports:8080/birt --env ALERTJOBCRONINTERVAL=10 --env ALERTJOBCRONTIME="0 */10 * * * *" --env BOSALERTURL=https://bosalerts.nightingales.in  --env NHHS_API_URL=https://api.nightingales.in/api --env AWS_ACCESSKEYID=AKIAJVZKXG5Y32NT2YFQ --env AWS_SECRETACCESSKEY=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 --env EVENT_BUS_APIKEY=5CD129A87A2DB748E6C9B2CAEF36C --env NHHS_GATEWAY_URL=https://api.nightingales.in/v1/ --env APMKEY='556e6b8c189f91499e52b99ad96c83f65789c457' --env NODE_ENV='prod' nightingales/emr:nodeserver
+
+
+echo "running containers"
+
+docker ps

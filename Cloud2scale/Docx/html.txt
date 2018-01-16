@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+ <head> Google </head>
+   <body>
+    <img src="https://www.google.co.in/search?q=google+images&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi34cuUnuLUAhXGHJQKHffcCiwQ_AUIBigB&biw=1366&bih=698#imgrc=kkKR3izoos2MuM:">
+   </body>
+</html>
+   
+
+ <img src="/home/vishnu/google.jpg">

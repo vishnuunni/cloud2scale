@@ -1,0 +1,62 @@
+
+MC Code update to live from Stage.
+
+Montecarlo Code update to Live From stage.
+
+If monte carlo dev team requested to update specific files from stage to live, first ask the MC team for confirmation. 
+
+Ask confirmation to Ujjwal or Sid.
+
+On confirmation follow the below procedure and get this done.
+
+1. Login to montecarlo live app server. ( 52.221.252.27 )
+
+2. Go to opt/app directory : cd /opt/app/
+
+3. Chack the git status, there may be few untracked files. These are images files. First push those files to git repo
+
+    
+
+    !. git add .
+
+   !!. git commit -m "random message"
+
+  !!!. git push origin master
+
+    
+
+Now all the files on production moved to git repo.
+
+4. Login to montecarlo stage server ( 52.74.108.37 ) then go to /mnt/git/montecarlo.in.git/ : cd /mnt/git/montecarlo.in.git/
+
+5. Pull all changes :  git pull origin master
+
+6. Now copy the files which mentioned by MC team from /opt/app/ directory to /mnt/git/montecarlo.in.git/ (Make sure to copy files to respective location, rewrite the current file if asked)
+
+7. Push the file which copied from /opt/app/ to /mnt/git/montecarlo.in.git/
+
+     
+
+     !. cd /mnt/git/montecarlo.in.git/
+
+    !!. git add filepath/filename
+
+   !!!. git commit -m "custome message"
+
+  !!!! git push origin master
+
+Push all the files requested by MC team.
+
+8. Now login to MC live app server, go to /opt/app and pull all the changes
+
+     
+
+     !. cd /opt/app/
+
+    !!. git pull origin master
+
+   !!!. run this script /opt/c2s/scripts/cache_clear.sh
+
+   
+
+Confirm back says "We have updated the requested files to live, please check and confirm."

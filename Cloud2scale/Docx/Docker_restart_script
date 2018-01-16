@@ -1,0 +1,33 @@
+#!/bin/bash
+
+echo "killing the container"
+
+docker kill desktop-peterengland
+
+echo "removing the container"
+
+docker rm desktop-peterengland
+
+echo "moving old log directory"
+
+cd /data/trendin_logs/
+
+mv desktop-peterengland desktop-peterengland.old
+
+echo "starting container"
+
+docker run -t -i -d -p 8084:80 --name desktop-peterengland -v /etc/localtime:/etc/localtime:ro -v /data/trendin/peterengland:/opt/app -v /data/conf/dockerpagespeed-prod:/opt/conf -v /data/trendin_logs/desktop-peterengland:/var/log/app rinejoseph/c2s:nginx-pagespeed-php5-4 /run.sh
+
+echo "running containers"
+
+docker ps
+
+echo "zip old log"
+
+cd /data/trendin_logs/
+
+zip -r desktop-peterengland$(date -d "today" +"%Y%m%d%H%M").zip desktop-peterengland.old
+
+rm -rf desktop-peterengland.old
+
+

@@ -1,0 +1,9 @@
+apt list --installed
+
+rpm -qa (yum list installed)
+service --status-all   > for checking the service
+
+
+
+apachectl -S  -----------> list all virtualhosts
+

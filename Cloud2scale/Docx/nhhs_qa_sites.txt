@@ -1,0 +1,41 @@
+acl prodbos hdr(host) -i bosv2.nightingales.in
+    acl prodbosalerts hdr(host) -i bosalerts.nightingales.in
+    acl prodemr hdr(host) -i emr.nightingales.in
+    acl cron hdr(host) -i cron.nightingales.in
+    acl rep-prodbos hdr(host) -i api-reports.nightingales.in
+    acl dashboard-dataprep hdr(host) -i dataprep.nightingales.in
+    acl dashboard-api hdr(host) -i dashboardapi.nightingales.in
+
+
+
+
+qa1-api.nightingales.in
+qa1-bus.nightingales.in
+qa1-log.nightingales.in
+qa1-rpm.nightingales.in
+----------------------------------------------------------------------
+qa1-api.nightingales.in
+qa1-bus.nightingales.in
+qa1-log.nightingales.in
+qa1-reports.nightingales.in
+qa1-rpm.nightingales.in
+qa1.nightingales.in
+qa1alerts.nightingales.in
+qa1cron.nightingales.in
+qa1emr.nightingales.in
+qa1tickets.nightingales.in
+qa1ticketsinst1.nightingales.in
+qa2-api.nightingales.in
+qa2-bus.nightingales.in
+qa2-log.nightingales.in
+qa2-reports.nightingales.in
+qa2.nightingales.in
+qa2alerts.nightingales.in
+qa2emr.nightingales.in
+qa3-api.nightingales.in
+qa3-bus.nightingales.in
+qa3-log.nightingales.in
+qa3.nightingales.in
+qa3alerts.nightingales.in
+qa3emr.nightingales.in
+qa4.nightingales.in

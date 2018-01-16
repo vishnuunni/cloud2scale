@@ -1,0 +1,36 @@
+#!/bin/bash
+
+echo "killing the container"
+
+docker kill desktop-allensolly
+
+echo "removing the container"
+
+docker rm desktop-allensolly
+
+echo "moving old log directory"
+
+cd /data/trendin_logs/
+
+mv desktop-allensolly desktop-allensolly.old
+
+echo "starting container"
+
+docker run -t -i -d -p 8081:80 --name desktop-allensolly -v /etc/localtime:/etc/localtime:ro -v /data/trendin/allensolly:/opt/app -v /data/conf/dockerpagespeed-prod:/opt/conf -v /data/trendin_logs/desktop-allensolly:/var/log/app rinejoseph/c2s:nginx-pagespeed-php5-4 /run.sh
+
+echo "running containers"
+
+docker ps
+
+echo "zip old log"
+
+cd /data/trendin_logs/
+
+zip -r desktop-allensolly$(date -d "today" +"%Y%m%d%H%M").zip desktop-allensolly.old
+
+rm -rf desktop-allensolly.old
+
+
+
+docker run --name vishnu -v /var/www/c2s 
+ docker rm $(docker ps -q -f status=exited)

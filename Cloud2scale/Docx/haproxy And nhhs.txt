@@ -1,0 +1,1 @@
+https://bosv2.nightingales.in/#/login              NHHS-Prod-Bos-App2    defaults proxy conf file : vi /etc/haproxy/haproxy.cfg

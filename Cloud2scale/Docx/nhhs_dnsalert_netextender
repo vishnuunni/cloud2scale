@@ -1,0 +1,10 @@
+Alert like dns fail or netExtender
+
+
+Live : netExtender --dns-only-local -u caliper4 -p note#1234 -d ep.esselpropack.com 210.210.21.28
+
+POC-app1  : netExtender --dns-only-local -u caliper1 -p just#1234 -d ep.esselpropack.com 210.210.21.28
+
+POC-APP2:  netExtender --dns-only-local -u caliper2 -p near#1234 -d ep.esselpropack.com 210.210.21.9
+
+
