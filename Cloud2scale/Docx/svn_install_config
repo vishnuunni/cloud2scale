@@ -1,0 +1,24 @@
+sudo apt-get update -y
+sudo apt-get install subversion
+sudo apt-get install subversion-tools -y
+sudo apt-get install libapache2-mod-svn -y
+sudo apt-get install libsvn-dev -y
+sudo apt-get install libapache2-svn -y
+mkdir -p svn/repos/
+svnadmin create svn/repos/testrepo
+chown -R www-data:www-data svn/repos/testrepo/
+sudo chown -R www-data:www-data svn/repos/testrepo/
+cd /etc/apache2/sites-available/
+sudo vi svn_repo.conf
+-----<Location /home/vishnu/svn>
+ DAV svn
+ SVNParentPath /home/vishnu/svn/repos/
+ AuthType Basic
+ AuthName "VISHNU"
+ AuthUserFile /etc/svnpasswd
+ Require valid-user
+</Location>
+
+sudo a2ensite svn_repo.conf
+sudo htpasswd -cm /etc/svnpasswd vishnu
+sudo /etc/init.d/apache2 restart
