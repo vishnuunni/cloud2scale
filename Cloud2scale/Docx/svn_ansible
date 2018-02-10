@@ -1,0 +1,105 @@
+
+We have implemented Ansible playbooks for Trendin's jobs.
+Please see the details pasted below:
+
+=-=-=
+Ansible server : 13.126.31.182
+ssh -i <c2s key> ubuntu@13.126.31.182
+Location : /home/ubuntu/trendin-ansible
+change the directory to /home/ubuntu/trendin-ansible
+=-=-=
+
+Commands are listed below:
+
+> To deploy changes to bflyte production server.
+
+=-=-=
+ansible-playbook bflyte_prod.yml -v --extra-vars "rev_num=38367"
+=-=-=
+
+If they need to add comment
+
+=-=-=
+ansible-playbook bflyte_prod.yml -v --extra-vars "rev_num=38367 comment=Hemanth"
+=-=-=
+
+> To deploy changes to bflyte test
+
+=-=-=
+ansible-playbook bflyte_test.yml -v --extra-vars "rev_num=38366"
+=-=-=
+
+> Clear PHP cache bflyte production server.
+
+=-=-=
+ansible-playbook bflyte-cache.yml
+=-=-=
+
+> > Clear PHP cache bflyte test server.
+
+=-=-=
+ansible-playbook bflyte-test-cache.yml
+=-=-=
+
+> To clear CF cache for bflyte production server.
+
+=-=-=
+ansible-playbook brandcfclear.yml
+=-=-=
+
+> To clear CF cache for bflyte test server.
+
+=-=-=
+ansible-playbook testcfclear.yml
+=-=-=
+
+> CRON update bflyte-cron (job 2)
+
+=-=-=
+ansible-playbook bflyte_cron.yml
+=-=-=
+
+> CRON app-cron (job 1)
+
+=-=-=
+ansible-playbook app_cron.yml
+=-=-=
+
+
+*IMP* we have to pass the rev num as environment veritable to update cron. Updated commands are listed below:
+
+> CRON update bflyte-cron (job 2)
+
+=-=-=
+ansible-playbook bflyte_cron.yml  -v --extra-vars "rev_num=number here"
+=-=-=
+
+> CRON app-cron (job 1)
+
+=-=-=
+ansible-playbook app_cron.yml -v --extra-vars "rev_num=number here"
+=-=-=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
