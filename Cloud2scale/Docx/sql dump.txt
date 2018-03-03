@@ -17,3 +17,9 @@ Login to the server copy the content in a file side the server
 Login to mysql choose db the start transaction
 Give the path\
 Commit
+
+
+
+SHOW PROCEDURE STATUS;
+
+
