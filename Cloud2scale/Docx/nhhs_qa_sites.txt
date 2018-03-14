@@ -39,3 +39,448 @@ qa3.nightingales.in
 qa3alerts.nightingales.in
 qa3emr.nightingales.in
 qa4.nightingales.in
+
+
+
+
+###STAGE-ENV-ACL###
+
+acl bosstage hdr(host) -i bosstage.nightingales.in
+use_backend bosstage if bosstage
+acl bosstagealerts hdr(host) -i bosstagealerts.nightingales.in
+use_backend bosstagealerts if bosstagealerts
+acl emrstage hdr(host) -i emrstage.nightingales.in
+use_backend emrstage if emrstage
+acl stage-api hdr(host) -i stage-api.nightingales.in
+use_backend stage-api if stage-api
+acl stage-bus hdr(host) -i stage-bus.nightingales.in
+use_backend stage-bus if stage-bus
+acl stage-log hdr(host) -i stage-log.nightingales.in
+use_backend stage-log if stage-log
+acl stagerpm hdr(host) -i stagerpm.nightingales.in
+use_backend stagerpm if stagerpm
+acl bosrealtime hdr(host) -i bosrealtime.nightingales.in
+use_backend bosrealtime if bosrealtime
+acl bosrealtimealerts hdr(host) -i bosrealtimealerts.nightingales.in
+use_backend bosrealtimealerts if bosrealtimealerts
+acl stagetickets hdr(host) -i stagetickets.nightingales.in
+use_backend stagetickets if stagetickets
+acl reviewboard hdr(host) -i reviewboard.nightingales.in
+use_backend reviewboard if reviewboard
+
+###QA1-ENV-ACL###
+
+acl qa1 hdr(host) -i qa1.nightingales.in
+use_backend qa1 if qa1
+acl qa1alerts hdr(host) -i qa1alerts.nightingales.in
+use_backend qa1alerts if qa1alerts
+acl qa1emr hdr(host) -i qa1emr.nightingales.in
+use_backend qa1emr if qa1emr
+acl qa1-api hdr(host) -i qa1-api.nightingales.in
+use_backend qa1-api if qa1-api
+acl qa1-bus hdr(host) -i qa1-bus.nightingales.in
+use_backend qa1-bus if qa1-bus
+acl qa1-log hdr(host) -i qa1-log.nightingales.in 
+use_backend qa1-log if qa1-log
+acl qa1-rpm hdr(host) -i qa1-rpm.nightingales.in
+use_backend qa1-rpm if qa1-rpm
+acl qa1cron hdr(host) -i qa1cron.nightingales.in
+use_backend qa1cron if qa1cron
+acl qa1tickets hdr(host) -i qa1tickets.nightingales.in
+use_backend qa1tickets if qa1tickets
+acl qa1ticketsinst1 hdr(host) -i qa1ticketsinst1.nightingales.in
+use_backend qa1ticketsinst1 if qa1ticketsinst1
+acl qa1-public hdr(host) -i qa1-public.nightingales.in
+use_backend qa1-public if qa1-public
+acl qa1-service hdr(host) -i qa1-gelocation.nightingales.in
+#acl is_websocket path_beg -i /socket.io
+use_backend qa1-service if qa1-service
+#acl is_socketio path_beg /socket.io
+#use_backend qa1-service if is_socketio
+###QA2-ENV-ACL###
+
+acl qa2 hdr(host) -i qa2.nightingales.in
+use_backend qa2 if qa2
+acl qa2alerts hdr(host) -i qa2alerts.nightingales.in
+use_backend qa2alerts if qa2alerts
+acl qa2emr hdr(host) -i qa2emr.nightingales.in
+use_backend qa2emr if qa2emr
+acl qa2-api hdr(host) -i qa2-api.nightingales.in
+use_backend qa2-api if qa2-api
+acl qa2-bus hdr(host) -i qa2-bus.nightingales.in
+use_backend qa2-bus if qa2-bus
+acl qa2-log hdr(host) -i qa2-log.nightingales.in
+use_backend qa2-log if qa2-log
+acl nhhs-feedback hdr(host) -i nhhs-feedback.nightingales.in
+use_backend nhhs-feedback if nhhs-feedback
+acl qa2-service hdr(host) -i qa2-gelocation.nightingales.in
+use_backend qa2-service if qa2-service
+#acl is_socketio path_beg /socket.io
+#use_backend qa2-service if is_socketio
+
+###QA3-ENV-ACL###
+
+acl qa3 hdr(host) -i qa3.nightingales.in
+use_backend qa3 if qa3
+acl qa3alerts hdr(host) -i qa3alerts.nightingales.in
+use_backend qa3alerts if qa3alerts
+acl qa3emr hdr(host) -i qa3emr.nightingales.in
+use_backend qa3emr if qa3emr
+acl qa3-api hdr(host) -i qa3-api.nightingales.in
+use_backend qa3-api if qa3-api
+acl qa3-bus hdr(host) -i qa3-bus.nightingales.in
+use_backend qa3-bus if qa3-bus
+acl qa3-log hdr(host) -i qa3-log.nightingales.in
+use_backend qa3-log if qa3-log
+acl openemr hdr(host) -i openemr.nightingales.in
+use_backend openemr if openemr
+
+###CI-ENV-ACL###
+acl ci-alerts hdr(host) -i ci-alerts.nightingales.in
+use_backend ci-alerts if ci-alerts
+acl ci-api hdr(host) -i ci-api.nightingales.in
+use_backend ci-api if ci-api
+acl ci-bos hdr(host) -i ci-bos.nightingales.in
+use_backend ci-bos if ci-bos
+acl ci-bus hdr(host) -i ci-bus.nightingales.in
+use_backend ci-bus if ci-bus
+acl ci-log hdr(host) -i ci-log.nightingales.in
+use_backend ci-log if ci-log
+acl ci-rpm hdr(host) -i ci-rpm.nightingales.in
+use_backend ci-rpm if ci-rpm
+
+###STAGE-ENV-BACKENDS###
+
+backend bosstage
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server bosstage 172.31.15.186:3002 cookie A check
+
+backend bosstagealerts
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server bosstage 172.31.15.186:3003 cookie A check
+
+backend emrstage
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server bosstage 172.31.15.186:3001 cookie A check		
+		
+backend stage-api
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server Stage-Django-NHHS-API 172.31.31.139:8081 cookie A check
+		
+backend stage-bus
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server Stage-Django-NHHS-API 172.31.31.139:8020 cookie A check
+		
+backend stage-log
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server Stage-Django-NHHS-API 172.31.31.139:8088 cookie A check		
+		
+backend stagerpm 
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server Stage-Django-NHHS-API 172.31.31.139:81 cookie A check	
+
+backend bosrealtime
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server bosstage 172.31.15.186:3004 cookie A check
+
+backend bosrealtimealerts
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server bosstage 172.31.15.186:3005 cookie A check
+
+backend stagetickets
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server bosstage 172.31.15.186:81 cookie A check
+
+backend reviewboard
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server bosstage 172.31.1.220:8000 cookie A check
+
+###QA1-ENV-BACKENDS###
+
+backend qa1-public
+        balance roundrobin
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa1app1 172.31.1.220:81 cookie A check
+
+
+backend qa1
+        balance roundrobin
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa1app1 172.31.1.220:3005 cookie A check
+        server qa2app1 172.31.78.176:3005 cookie A check
+
+backend qa1alerts
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa1app1 172.31.1.220:3004 cookie A check
+        server qa1app2 172.31.78.176:3004 cookie A check
+
+backend qa1emr
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa1app1 172.31.1.220:3010 cookie A check
+        server qa1app2 172.31.78.176:3010 cookie A check
+
+backend qa1-api
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server Qa-Django-NHHS-API 172.31.40.133:8081 cookie A check
+
+backend qa1-bus
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server node1 172.31.40.133:8020 cookie A check
+
+backend qa1-log
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server node1 172.31.40.133:8088 cookie A check
+
+backend qa1cron
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa1app1 172.31.1.220:3003 cookie A check
+
+backend qa1-rpm
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server Qa-Django-NHHS-API 172.31.40.133:81 cookie A check
+
+backend qa1tickets
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa1app1 172.31.1.220:81 cookie A check
+
+backend qa1ticketsinst1 
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa1app1 172.31.1.220:82 cookie A check
+
+backend qa1-service
+        balance source
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa1app1 172.31.1.220:3011 cookie A check
+
+###QA2-ENV-BACKENDS###
+
+backend qa2
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa234app-db 172.31.5.39:3007 cookie A check
+
+backend qa2alerts
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa234app-db 172.31.5.39:3006 cookie A check
+
+backend qa2emr
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa234app-db 172.31.5.39:3006 cookie A check
+
+backend qa2-api
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa2-django-nhhs-api 172.31.7.30:8081 cookie A check
+
+backend qa2-bus
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa2-django-nhhs-api 172.31.7.30:8020 cookie A check
+
+backend qa2-log
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa2-django-nhhs-api 172.31.7.30:8080 cookie A check
+backend nhhs-feedback
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa234 172.31.5.39:81 cookie A check
+
+backend qa2-service
+        balance source
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa234 172.31.5.39:3011 cookie A check
+
+###QA3-ENV-BACKENDS###
+
+backend qa3
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa234app-db 172.31.5.39:3009 cookie A check
+
+backend qa3alerts
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa234app-db 172.31.5.39:3008 cookie A check
+
+backend qa3emr
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa234app-db 172.31.5.39:3011 cookie A check
+
+backend qa3-api
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa234app-db 172.31.5.39:3011 cookie A check
+
+backend qa3-bus
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa234app-db 172.31.5.39:8020 cookie A check
+
+backend qa3-log
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa234app-db 172.31.5.39:8088 cookie A check
+
+###CI-ENV-BACKENDS###
+
+backend ci-bos
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server CI-ENV 172.31.39.168:3009 cookie A check
+
+backend ci-alerts
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server CI-ENV 172.31.39.168:3008 cookie A check
+
+backend ci-api
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server CI-ENV 172.31.39.168:8091 cookie A check
+
+backend ci-bus
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server CI-ENV 172.31.39.168:8020 cookie A check
+
+backend ci-log
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server CI-ENV 172.31.39.168:8088 cookie A check
+
+backend ci-rpm
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server CI-ENV 172.31.39.168:81 cookie A check	
+
+backend openemr
+        balance leastconn
+        option httpclose
+        option forwardfor
+        cookie JSESSIONID prefix
+        server qa234app-db 172.31.5.39:8001 cookie A check	
+
+listen stats :8092
+        mode http
+        stats enable
+        stats realm Haproxy\ Statistics
+        stats uri /
+        stats auth admin:No@cce55
+
+
+
+
+
+
+
+
