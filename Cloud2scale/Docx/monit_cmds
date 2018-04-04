@@ -1,0 +1,3 @@
+check file redis_6379.log with path /var/log/redis_6379.log
+      if match "Can't save in background" then alert
+
