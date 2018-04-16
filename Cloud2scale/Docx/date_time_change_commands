@@ -1,0 +1,6 @@
+[root@ip-172-31-5-79 etc]# cat /etc/sysconfig/clock
+ZONE="Asia/Kolkata"
+UTC=true
+
+mv /etc/localtime /etc/localtime_old
+ln -s /usr/share/zoneinfo/Asia/Kolkata /etc/localtime

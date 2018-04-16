@@ -1,0 +1,32 @@
+
+########################################################################################################################################
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Domain								Load Balancer					Ec2-instances
+-----------------------------------------------------------------------------------------------------------------------------------------
+qa.sparskills.com.  			CNAME  	          9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com   9stacks-qa-ecs-services
+adminbff.7pe7.com.  			CNAME   	  9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com   9stacks-qa-ecs-services 
+bff-adminfe.7pe7.com.			CNAME   	  9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com   9stacks-qa-ecs-services
+bff-web.7pe7.com.  			CNAME	          9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com   9stacks-qa-ecs-services
+service-accesscontrol.7pe7.com. 	CNAME 		  9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com	9stacks-qa-ecs-services
+service-cashier.7pe7.com. 		CNAME 		  9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com 	9stacks-qa-ecs-services
+service-chat.7pe7.com. 			CNAME 		  9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com	9stacks-qa-ecs-services
+service-email.7pe7.com. 		CNAME 		  9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com	9stacks-qa-ecs-services
+service-fantasyleagueengine.7pe7.com.	CNAME 		  9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com	9stacks-qa-ecs-services
+service-fantasyleaguegameplay.7pe7.com. CNAME 		  9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com	9stacks-qa-ecs-services
+service-messageexchange.7pe7.com. 	CNAME 		  9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com	9stacks-qa-ecs-services
+service-payment.7pe7.com. 		CNAME 		  9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com	9stacks-qa-ecs-services
+service-promo.7pe7.com. 		CNAME 		  9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com	9stacks-qa-ecs-services
+service-sms.7pe7.com. 			CNAME		  9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com	9stacks-qa-ecs-services
+service-statistics.7pe7.com. 		CNAME		  9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com	9stacks-qa-ecs-services
+service-user.7pe7.com. 			CNAME 		  9stack-qa-alb-172266524.us-east-1.elb.amazonaws.com	9stacks-qa-ecs-services
+7pe7.com. 				A 		  web-qa-lb-2049718537.us-east-1.elb.amazonaws.com. 	9stacks-qa-frontendweb
+www.7pe7.com. 				A 		  web-qa-lb-2049718537.us-east-1.elb.amazonaws.com.     9stacks-qa-frontendweb
+app.7pe7.com.				A 		  web-qa-app-lb-326540404.us-east-1.elb.amazonaws.com.  9stacks-qa-frontendweb
+
+#######################################################################################################################################
+blog.7pe7.com. 				A		  34.227.25.116						9stacks-qa-blog
+enterra.7pe7.com.			A		  34.207.24.252						russian-c++
+pokerweb.7pe7.com.			A		  34.207.24.252						russian-c++
+jenkins.7pe7.com.			A		  54.156.22.231						9stacks-utility-jenkins
+logs-qa.7pe7.com.			A		  54.156.22.231						9stacks-utility-jenkins
+#######################################################################################################################################
