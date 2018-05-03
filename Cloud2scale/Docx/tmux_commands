@@ -1,0 +1,25 @@
+tmux
+
+
+start new with session name:
+
+tmux new -s myname
+
+
+attach to named:
+
+tmux attach -t name
+
+
+list sessions:
+
+tmux ls
+
+kill session:
+
+tmux kill-session -t myname
+
+
+create and detach
+
+tmux new -s test -d
